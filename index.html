@@ -37,11 +37,11 @@
         <script src="js/labels.js"></script>
         <script src="js/leaflet.photon.js"></script>
         <script src="js/leaflet-measure.js"></script>
-        <script src="data/is2_downsampled_3.js"></script>
+        <script src="data/is2_downsampled_4.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:28, minZoom:1
-        }).fitBounds([[72.86988584696591,-140.0175627636693],[73.90045034696577,-138.74806483819177]]);
+        }).fitBounds([[70.96404544879906,-142.442321016767],[75.08630344879847,-137.43069396794883]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -120,7 +120,16 @@
                                               {pane: 'pane_sig0_2'});
         bounds_group.addLayer(layer_sig0_2);
         map.addLayer(layer_sig0_2);
-        function pop_is2_downsampled_3(feature, layer) {
+        map.createPane('pane_sea_ice_mask_3');
+        map.getPane('pane_sea_ice_mask_3').style.zIndex = 403;
+        var img_sea_ice_mask_3 = 'data/sea_ice_mask_3.png';
+        var img_bounds_sea_ice_mask_3 = [[69.71066755458757,-155.29920485610498],[75.9393204641092,-129.50223906536118]];
+        var layer_sea_ice_mask_3 = new L.imageOverlay(img_sea_ice_mask_3,
+                                              img_bounds_sea_ice_mask_3,
+                                              {pane: 'pane_sea_ice_mask_3'});
+        bounds_group.addLayer(layer_sea_ice_mask_3);
+        map.addLayer(layer_sea_ice_mask_3);
+        function pop_is2_downsampled_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['longitude'] !== null ? autolinker.link(String(feature.properties['longitude']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -139,190 +148,196 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_is2_downsampled_3_0(feature) {
-            if (feature.properties['ssha_smoothed'] >= -0.193936 && feature.properties['ssha_smoothed'] <= 0.047559 ) {
+        function style_is2_downsampled_4_0(feature) {
+            if (feature.properties['ssha_smoothed'] >= -0.115858 && feature.properties['ssha_smoothed'] <= 0.024451 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
-                radius: 2.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                pane: 'pane_is2_downsampled_4',
+                radius: 4.0,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(68,1,84,1.0)',
+                fillColor: 'rgba(8,48,107,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.047559 && feature.properties['ssha_smoothed'] <= 0.096456 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.024451 && feature.properties['ssha_smoothed'] <= 0.076471 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(71,40,120,1.0)',
+                fillColor: 'rgba(8,72,142,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.096456 && feature.properties['ssha_smoothed'] <= 0.128550 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.076471 && feature.properties['ssha_smoothed'] <= 0.104132 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(62,74,137,1.0)',
+                fillColor: 'rgba(17,92,165,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.128550 && feature.properties['ssha_smoothed'] <= 0.161468 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.104132 && feature.properties['ssha_smoothed'] <= 0.124835 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(49,104,142,1.0)',
+                fillColor: 'rgba(32,111,180,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.161468 && feature.properties['ssha_smoothed'] <= 0.199578 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.124835 && feature.properties['ssha_smoothed'] <= 0.144139 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(38,131,142,1.0)',
+                fillColor: 'rgba(50,130,190,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.199578 && feature.properties['ssha_smoothed'] <= 0.241733 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.144139 && feature.properties['ssha_smoothed'] <= 0.169457 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(30,158,137,1.0)',
+                fillColor: 'rgba(68,148,199,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.241733 && feature.properties['ssha_smoothed'] <= 0.286378 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.169457 && feature.properties['ssha_smoothed'] <= 0.197211 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(53,183,121,1.0)',
+                fillColor: 'rgba(91,163,208,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.286378 && feature.properties['ssha_smoothed'] <= 0.341876 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.197211 && feature.properties['ssha_smoothed'] <= 0.222684 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(108,206,89,1.0)',
+                fillColor: 'rgba(115,178,216,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.341876 && feature.properties['ssha_smoothed'] <= 0.426987 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.222684 && feature.properties['ssha_smoothed'] <= 0.249432 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(180,222,44,1.0)',
+                fillColor: 'rgba(143,194,222,1.0)',
                 interactive: false,
             }
             }
-            if (feature.properties['ssha_smoothed'] >= 0.426987 && feature.properties['ssha_smoothed'] <= 1.119923 ) {
+            if (feature.properties['ssha_smoothed'] >= 0.249432 && feature.properties['ssha_smoothed'] <= 0.275050 ) {
                 return {
-                pane: 'pane_is2_downsampled_3',
+                pane: 'pane_is2_downsampled_4',
                 radius: 4.0,
-                opacity: 1,
-                color: 'rgba(35,35,35,0.0)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1,
+                stroke: false,
                 fill: true,
                 fillOpacity: 1,
-                fillColor: 'rgba(253,231,37,1.0)',
+                fillColor: 'rgba(168,206,229,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ssha_smoothed'] >= 0.275050 && feature.properties['ssha_smoothed'] <= 0.304419 ) {
+                return {
+                pane: 'pane_is2_downsampled_4',
+                radius: 4.0,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(190,216,236,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ssha_smoothed'] >= 0.304419 && feature.properties['ssha_smoothed'] <= 0.338405 ) {
+                return {
+                pane: 'pane_is2_downsampled_4',
+                radius: 4.0,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(206,225,242,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ssha_smoothed'] >= 0.338405 && feature.properties['ssha_smoothed'] <= 0.376864 ) {
+                return {
+                pane: 'pane_is2_downsampled_4',
+                radius: 4.0,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(220,233,246,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ssha_smoothed'] >= 0.376864 && feature.properties['ssha_smoothed'] <= 0.437660 ) {
+                return {
+                pane: 'pane_is2_downsampled_4',
+                radius: 4.0,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(233,242,251,1.0)',
+                interactive: false,
+            }
+            }
+            if (feature.properties['ssha_smoothed'] >= 0.437660 && feature.properties['ssha_smoothed'] <= 1.034914 ) {
+                return {
+                pane: 'pane_is2_downsampled_4',
+                radius: 4.0,
+                stroke: false,
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,251,255,1.0)',
                 interactive: false,
             }
             }
         }
-        map.createPane('pane_is2_downsampled_3');
-        map.getPane('pane_is2_downsampled_3').style.zIndex = 403;
-        map.getPane('pane_is2_downsampled_3').style['mix-blend-mode'] = 'normal';
-        var layer_is2_downsampled_3 = new L.geoJson(json_is2_downsampled_3, {
+        map.createPane('pane_is2_downsampled_4');
+        map.getPane('pane_is2_downsampled_4').style.zIndex = 404;
+        map.getPane('pane_is2_downsampled_4').style['mix-blend-mode'] = 'normal';
+        var layer_is2_downsampled_4 = new L.geoJson(json_is2_downsampled_4, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_is2_downsampled_3',
-            layerName: 'layer_is2_downsampled_3',
-            pane: 'pane_is2_downsampled_3',
-            onEachFeature: pop_is2_downsampled_3,
+            dataVar: 'json_is2_downsampled_4',
+            layerName: 'layer_is2_downsampled_4',
+            pane: 'pane_is2_downsampled_4',
+            onEachFeature: pop_is2_downsampled_4,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_is2_downsampled_3_0(feature));
+                return L.circleMarker(latlng, style_is2_downsampled_4_0(feature));
             },
         });
-        bounds_group.addLayer(layer_is2_downsampled_3);
-        map.addLayer(layer_is2_downsampled_3);
+        bounds_group.addLayer(layer_is2_downsampled_4);
+        map.addLayer(layer_is2_downsampled_4);
         var overlaysTree = [
-            {label: 'is2_downsampled<br /><table><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_019400480.png" /></td><td>-0.194 - 0.048</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_004800961.png" /></td><td>0.048 - 0.096</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_009601292.png" /></td><td>0.096 - 0.129</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_012901613.png" /></td><td>0.129 - 0.161</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_016102004.png" /></td><td>0.161 - 0.200</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_020002425.png" /></td><td>0.200 - 0.242</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_024202866.png" /></td><td>0.242 - 0.286</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_028603427.png" /></td><td>0.286 - 0.342</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_034204278.png" /></td><td>0.342 - 0.427</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_3_042711209.png" /></td><td>0.427 - 1.120</td></tr></table>', layer: layer_is2_downsampled_3},
+            {label: 'is2_downsampled<br /><table><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_011600240.png" /></td><td>-0.116 - 0.024</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_002400761.png" /></td><td>0.024 - 0.076</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_007601042.png" /></td><td>0.076 - 0.104</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_010401253.png" /></td><td>0.104 - 0.125</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_012501444.png" /></td><td>0.125 - 0.144</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_014401695.png" /></td><td>0.144 - 0.169</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_016901976.png" /></td><td>0.169 - 0.197</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_019702237.png" /></td><td>0.197 - 0.223</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_022302498.png" /></td><td>0.223 - 0.249</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_024902759.png" /></td><td>0.249 - 0.275</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_0275030410.png" /></td><td>0.275 - 0.304</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_0304033811.png" /></td><td>0.304 - 0.338</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_0338037712.png" /></td><td>0.338 - 0.377</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_0377043813.png" /></td><td>0.377 - 0.438</td></tr><tr><td style="text-align: center;"><img src="legend/is2_downsampled_4_0438103514.png" /></td><td>0.438 - 1.035</td></tr></table>', layer: layer_is2_downsampled_4},
+            {label: "sea_ice_mask", layer: layer_sea_ice_mask_3},
             {label: "sig0", layer: layer_sig0_2},
             {label: "ssha_HR", layer: layer_ssha_HR_1},
             {label: "OpenStreetMap", layer: layer_OpenStreetMap_0},]
@@ -333,59 +348,9 @@
             //openedSymbol: '&#8863; &#x1f5c1;',
             //collapseAll: 'Collapse all',
             //expandAll: 'Expand all',
-            collapsed: false, 
+            collapsed: true,
         });
         lay.addTo(map);
-		document.addEventListener("DOMContentLoaded", function() {
-            // set new Layers List height which considers toggle icon
-            function newLayersListHeight() {
-                var layerScrollbarElement = document.querySelector('.leaflet-control-layers-scrollbar');
-                if (layerScrollbarElement) {
-                    var layersListElement = document.querySelector('.leaflet-control-layers-list');
-                    var originalHeight = layersListElement.style.height 
-                        || window.getComputedStyle(layersListElement).height;
-                    var newHeight = parseFloat(originalHeight) - 50;
-                    layersListElement.style.height = newHeight + 'px';
-                }
-            }
-            var isLayersListExpanded = true;
-            var controlLayersElement = document.querySelector('.leaflet-control-layers');
-            var toggleLayerControl = document.querySelector('.leaflet-control-layers-toggle');
-            // toggle Collapsed/Expanded and apply new Layers List height
-            toggleLayerControl.addEventListener('click', function() {
-                if (isLayersListExpanded) {
-                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
-                } else {
-                    controlLayersElement.classList.add('leaflet-control-layers-expanded');
-                }
-                isLayersListExpanded = !isLayersListExpanded;
-                newLayersListHeight()
-            });	
-			// apply new Layers List height if toggle layerstree
-			if (controlLayersElement) {
-				controlLayersElement.addEventListener('click', function(event) {
-					var toggleLayerHeaderPointer = event.target.closest('.leaflet-layerstree-header-pointer span');
-					if (toggleLayerHeaderPointer) {
-						newLayersListHeight();
-					}
-				});
-			}
-            // Collapsed/Expanded at Start to apply new height
-            setTimeout(function() {
-                toggleLayerControl.click();
-            }, 10);
-            setTimeout(function() {
-                toggleLayerControl.click();
-            }, 10);
-            // Collapsed touch/small screen
-            var isSmallScreen = window.innerWidth < 650;
-            if (isSmallScreen) {
-                setTimeout(function() {
-                    controlLayersElement.classList.remove('leaflet-control-layers-expanded');
-                    isLayersListExpanded = !isLayersListExpanded;
-                }, 500);
-            }  
-        });       
         setBounds();
         L.ImageOverlay.include({
             getBounds: function () {
